@@ -1,0 +1,10 @@
+Observations:
+1.	The address of the global variables(a,b,c) is the same in all the threads.
+2.	The address of the local variables(i,j,k) is different in all the threads.
+Explaination:
+A program’s virtual memory space is divided into segments called text, data, stack and heap. During multi-threading , 
+all the segments except the stack are shared between the threads. The global variables and static variables in the program 
+are stored in data segment. Therefore, global variables a,b,c  in the program have same address on virtual memory. 
+
+Functions when called allocate space on the stack. As each of the threads have separate virtual memory space for stack ,
+the local variables I,j,k have different addresses in different threads
